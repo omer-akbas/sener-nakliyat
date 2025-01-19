@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--primary-blue);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    color: var(--white) !important;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--white) !important;
+    padding: 10px 20px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--light-blue) !important;
+    opacity: 0.9;
+}
+
+/* Mobil menü butonu */
+.menu-toggle {
+    display: none;
+    color: var(--white);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel, .carousel-inner, .carousel-item {
+    height: 100%;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-caption {
+    background: rgba(0, 51, 102, 0.7);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 50px 20px;
+}
+
+.carousel-caption h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-indicators {
+    margin-bottom: 50px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+}
+
+/* Carousel buton stillerini güncelle */
+.carousel-caption .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--white);
+    color: var(--primary-blue);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid var(--white);
+}
+
+.carousel-caption .cta-button:hover {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+/* Mobil görünüm için buton stilini ayarla */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: var(--primary-blue);
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .carousel-caption h1 {
+        font-size: 32px;
+    }
+    
+    .carousel-caption p {
+        font-size: 16px;
+    }
+
+    .carousel-caption .cta-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Services Section */
+.services {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    text-align: center;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card i {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-content .lead {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--primary-blue);
+    margin-bottom: 30px;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.feature {
+    padding: 20px;
+    background-color: var(--light-blue);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: var(--secondary-blue);
+    margin-bottom: 15px;
+}
+
+.feature h4 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.stat {
+    padding: 30px 20px;
+    background-color: var(--light-blue);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+}
+
+.stat i {
+    font-size: 2.5rem;
+    color: var(--secondary-blue);
+    margin-bottom: 15px;
+}
+
+.stat .label {
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Mobil görünüm için */
+@media (max-width: 768px) {
+    .about-content .lead {
+        font-size: 1.1rem;
+    }
+
+    .feature {
+        padding: 15px;
+    }
+
+    .stat {
+        padding: 20px 15px;
+    }
+    
+    .stat i {
+        font-size: 2rem;
+    }
+
+    .stat .label {
+        font-size: 1rem;
+    }
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-card {
+    text-align: center;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.contact-card i {
+    font-size: 30px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.contact-card a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Harita container stili */
+.map-container {
+    margin-top: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* İletişim kartları grid düzenini güncelle */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Mobil görünüm için harita yüksekliği */
+@media (max-width: 768px) {
+    .map-container iframe {
+        height: 300px;
+    }
+} 
