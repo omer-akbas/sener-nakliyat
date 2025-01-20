@@ -12,9 +12,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', function() {
     const nav = document.querySelector('nav');
     if (window.scrollY > 50) {
-        nav.style.backgroundColor = 'rgba(0, 51, 102, 0.95)'; // Koyu mavi, hafif transparan
+        nav.classList.add('scrolled');
     } else {
-        nav.style.backgroundColor = 'var(--primary-blue)'; // Normal koyu mavi
+        nav.classList.remove('scrolled');
     }
 });
 
@@ -30,4 +30,47 @@ document.querySelectorAll('.nav-links a').forEach(link => {
             document.querySelector('.nav-links').classList.remove('active');
         }
     });
+});
+
+// İstatistik sayaç animasyonu
+function animateStats() {
+    const stats = document.querySelectorAll('.stat-number');
+    
+    stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 2000; // 2 saniye
+        const increment = target / (duration / 16); // 60 FPS
+        let current = 0;
+        
+        const updateCount = () => {
+            if(current < target) {
+                current += increment;
+                stat.textContent = Math.round(current);
+                requestAnimationFrame(updateCount);
+            } else {
+                stat.textContent = target;
+            }
+        };
+        
+        updateCount();
+    });
+}
+
+// Sayfa yüklendiğinde ve scroll edildiğinde istatistikleri kontrol et
+document.addEventListener('DOMContentLoaded', () => {
+    const statsSection = document.querySelector('.stats-section');
+    let animated = false;
+    
+    const checkScroll = () => {
+        if(!animated) {
+            const rect = statsSection.getBoundingClientRect();
+            if(rect.top <= window.innerHeight && rect.bottom >= 0) {
+                animateStats();
+                animated = true;
+            }
+        }
+    };
+    
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // İlk yüklemede kontrol et
 }); 
