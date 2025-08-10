@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Sitemap: https://senernakliyat.com/sitemap.xml 
+Sitemap: https://şenernakliyat.com/sitemap.xml 
